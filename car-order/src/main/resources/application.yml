@@ -1,0 +1,28 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: car-order
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: 59852369
+  jpa:
+    database: mysql
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8000/eureka/
+
+feign:
+                   hystrix:
+                     enabled: true
+#hystric默认请求超过1秒未响应就降级，配置为3秒未响应再降级
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds:  3000
