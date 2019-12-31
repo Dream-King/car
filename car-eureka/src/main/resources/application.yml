@@ -1,0 +1,12 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: car-eureka
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  server:
+      eviction-interval-timer-in-ms: 1000     # 续期时间，即扫描失效服务的间隔时间（单位毫秒，默认是60*1000）测试时关闭自我保护机制，保证不可用服务及时踢出
+      enableSelfPreservation: false    # 设为false，关闭自我保护
